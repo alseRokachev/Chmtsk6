@@ -4,6 +4,26 @@
 
 
 
+int textLimCheck(string str)
+{
+    int number;
+    string? text;
+    while (true)
+    {
+        System.Console.Write(str);
+        text = Console.ReadLine();
+        if (int.TryParse(text, out number))
+        {
+            if (number > 0)
+            {
+                break;
+            }
+        }
+        System.Console.WriteLine("Некорректное число");
+    }
+    return number;
+}
+
 int textCheck(string str)
 {
     int number;
@@ -50,15 +70,17 @@ void printAnswer(int posNumbs, int[] array)
     {
         System.Console.WriteLine($"Вы ввели {numbsCheck(array)} число больше 0");
     }
-    else if(posNumbs >= 2 & posNumbs <=4) {
+    else if (posNumbs >= 2 & posNumbs <= 4)
+    {
         System.Console.WriteLine($"Вы ввели {numbsCheck(array)} числа больше 0");
     }
-    else {
+    else
+    {
         System.Console.WriteLine($"Вы ввели {numbsCheck(array)} чисел больше 0");
     }
 }
 
-int lim = textCheck("Введите кол-во чисел: ");
+int lim = textLimCheck("Введите кол-во чисел: ");
 int[] array = numbsArray(lim);
 int posNumbs = numbsCheck(array);
 printAnswer(posNumbs, array);
